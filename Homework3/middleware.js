@@ -33,7 +33,7 @@ module.exports.dateValidator = (req, res, next) => {
     }
   } else {
     const finalDate = dateQuery || dateHeader;
-    if (!checkSpecRange(finalDate)) {
+    if (!finalDate || !checkSpecRange(finalDate)) {
       res.sendStatus(StatusCodes.UNAUTHORIZED);
     } else {
       req.dateValidation = finalDate;
