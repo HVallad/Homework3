@@ -10,7 +10,11 @@ App.use(Express.json());
 
 App.use(Middlewares.blockDeleteMethod);
 
-App.all(Router.All);
+App.use(Middlewares.dateValidator);
+
+App.use(Middlewares.logRequest);
+
+App.all('/', Router.All);
 
 App.use(Middlewares.errorHandler);
 
